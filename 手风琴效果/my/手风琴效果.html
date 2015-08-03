@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style type="text/css">
+		body,p,ul,h3{
+			margin: 0;
+			padding: 0;
+		}
+		ul,li{
+			list-style: none;
+		}
+		a{
+			text-decoration: none;
+		}
+
+		#wrop{
+			height: 120px;
+		}
+		#wrop ul{
+			width: 830px;
+			height: 120px;
+			border-left: 1px solid #ccc;
+			border-right:1px solid #ccc;
+
+		}
+		#wrop li{
+			float: left;
+			width: 170px;
+			height: 120px;
+			overflow: hidden;
+		}
+		#wrop li a{
+			display: block;
+			width: 100%;
+			height: 100%;
+			position: relative;
+		}
+		#wrop *{
+			transition: all linear 0.3s;
+		}
+		#wrop li a img{
+			width: 117px;
+			height: 72px;
+			position: absolute;
+			right: -15px;
+			bottom: 0;
+		}
+		#wrop li a .content{
+			position: absolute;
+			left: 0;
+			top: 0;
+			padding: 5px 0 0 10px;
+		}
+		#wrop li a .content h3{
+			font-size: 16px;
+			padding-top: 10px;
+			color: #f62368;
+		}
+		#wrop li a .content p{
+			padding-top: 15px;
+			font-size: 14px;
+			color: #868686;
+		}
+		#wrop li a .content p.price{
+			font-size: 16px;
+			color: #f62368;
+		}
+		#wrop li a .content p.price strong{
+			font-size: 28px;
+		}
+
+		#wrop li a .line{
+			position: absolute;
+			width: 0;
+			right: 0;
+			top: 0;
+			height: 120px;
+			border:1px dashed #ddd;
+		}
+		#wrop li a .mask{
+			width: 100%;
+			height: 120px;
+			position: absolute;
+			left: 0;
+			top: 0;
+			background: #000;
+			opacity: 0.2;
+		}
+		#wrop li.active a img{
+			width: 195px;
+			height: 120px;
+			position: absolute;
+			right: 0;
+			bottom: 0;
+		}
+		#wrop li.active{
+			width: 320px;
+		}
+		#wrop li:hover .mask{
+			opacity: 0;
+		}
+		#wrop li.active .mask{
+			opacity: 0;
+		}
+		#wrop li.active a .content h3{
+			font-size: 20px;
+			padding-top: 10px;
+			color: #f62368;
+		}
+		#wrop li.active a .content p{
+			padding-top: 15px;
+			font-size: 18px;
+			color: #868686;
+		}
+		#wrop li.active a .content p.price{
+			font-size: 20px;
+			color: #f62368;
+		}
+		#wrop li.active a .content p.price strong{
+			font-size: 32px;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			function init(){
+				var wrop = document.getElementById('wrop');
+				var li = wrop.getElementsByTagName('li');
+				for (var i = 0; i < li.length; i++) {
+					bind(li[i],'mouseover',mouseoverHandle);
+				};
+			}
+			function bind (obj,type,callback) {
+				if (obj.addEventListener) {
+					obj.addEventListener(type,callback,false);
+				}else{
+					obj.attachEvent('on'+type,callback);
+				}
+			}
+			function mouseoverHandle (e) {
+				var target = e.target || e.srcElement;
+				var wrop = document.getElementById('wrop');
+				var li = wrop.getElementsByTagName('li');
+				while(target.tagName !='LI' && target.tagName != 'BODY'){
+					target = target.parentNode;
+				}
+				for (var i = 0; i < li.length; i++) {
+					li[i].className = "";
+				};
+				target.className = 'active';
+			}
+			init();
+		}
+	</script>
+</head>
+<body>
+	<div id="wrop">
+		<ul>
+			<li>
+				<a href="">
+					<img src="http://gtms01.alicdn.com/tps/i1/T1Lvt3Fv4kXXbA5QAK-195-120.jpg_Q90.jpg" alt="">
+					<div class="content">
+						<h3>聚美妆</h3>
+						<p>聚美妆1/2周年庆</p>
+						<p class="price"><strong>1</strong><i>折起</i></p>
+					</div>
+					<i class="mask"></i>
+				</a>
+			</li>
+			<li  class="active">
+				<a href="">
+					<img src="http://gtms01.alicdn.com/tps/i1/T1Lvt3Fv4kXXbA5QAK-195-120.jpg_Q90.jpg" alt="">
+					<div class="content">
+						<h3>聚美妆</h3>
+						<p>聚美妆1/2周年庆</p>
+						<p class="price"><strong>1</strong><i>折起</i></p>
+					</div>
+					<i class="mask"></i>
+				</a>
+			</li>
+			<li>
+				<a href="">
+					<img src="http://gtms01.alicdn.com/tps/i1/T1Lvt3Fv4kXXbA5QAK-195-120.jpg_Q90.jpg" alt="">
+					<div class="content">
+						<h3>聚美妆</h3>
+						<p>聚美妆1/2周年庆</p>
+						<p class="price"><strong>1</strong><i>折起</i></p>
+					</div>
+					<i class="mask"></i>
+				</a>
+			</li>
+			<li>
+				<a href="">
+					<img src="http://gtms01.alicdn.com/tps/i1/T1Lvt3Fv4kXXbA5QAK-195-120.jpg_Q90.jpg" alt="">
+					<div class="content">
+						<h3>聚美妆</h3>
+						<p>聚美妆1/2周年庆</p>
+						<p class="price"><strong>1</strong><i>折起</i></p>
+					</div>
+					<i class="mask"></i>
+				</a>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>
